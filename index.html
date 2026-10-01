@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoinShare - Divisão Inteligente de Despesas em Grupo</title>
+  <meta name="description" content="CoinShare é um sistema web responsivo para divisão colaborativa de despesas em grupos com clareza financeira e transparência.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="raiz-aplicacao" class="raiz-aplicacao">
+    
+    <!-- Cabeçalho de Navegação para Desktops e Tablets -->
+    <header id="cabecalho-navegacao-desktop" class="cabecalho-navegacao-desktop oculto">
+      <div class="conteudo-interno-navegacao-desktop">
+        <div class="marca-navegacao-desktop">
+          <div class="emblema-logo-cabecalho">
+            <img src="img/logo.png" alt="CoinShare Logo" class="imagem-logo-desktop">
+          </div>
+          <span class="texto-marca-desktop">COINSHARE</span>
+        </div>
+        <nav class="links-navegacao-desktop" aria-label="Navegação Desktop">
+          <button type="button" class="link-navegacao-desktop ativa" data-alvo="tela-inicio" id="link-nav-inicio">INÍCIO</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-despesas" id="link-nav-despesas">DESPESAS</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-acerto-contas" id="link-nav-acerto">ACERTO DE CONTAS</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-relatorios" id="link-nav-relatorios">RELATÓRIOS</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-historico" id="link-nav-historico">HISTÓRICO</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-membros" id="link-nav-membros">MEMBROS</button>
+          <button type="button" class="link-navegacao-desktop" data-alvo="tela-configuracoes" id="link-nav-configuracoes">CONFIGURAÇÕES</button>
+        </nav>
+        <div class="usuario-navegacao-desktop">
+          <button type="button" id="botao-notificacoes-desktop" class="botao-icone-notificacao-desktop" title="Notificações" aria-label="Notificações">
+            <svg viewBox="0 0 24 24" class="icone-cabecalho-sino"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+          </button>
+          <span class="selo-usuario-desktop" id="etiqueta-usuario-desktop">NOME USUÁRIO</span>
+          <button type="button" id="botao-acao-sair-desktop" class="botao-icone-sair-desktop" title="Sair da Conta">
+            <svg viewBox="0 0 24 24" class="icone-sair-desktop"><path fill="currentColor" d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==============================================
+         1. TELA DE AUTENTICAÇÃO (LOGIN & CADASTRO)
+    =============================================== -->
+    <section id="tela-autenticacao" class="tela tela-autenticacao ativa">
+      <div class="conteiner-layout-autenticacao">
+        
+        <!-- Apresentação Desktop (Hero / Destaques da Marca) -->
+        <aside class="painel-apresentacao-desktop" aria-label="Apresentação do CoinShare">
+          <div class="marca-apresentacao">
+            <img src="img/logo.png" alt="CoinShare Logo" class="logo-apresentacao">
+            <span class="selo-apresentacao">FINANÇAS COLABORATIVAS</span>
+          </div>
+          
+          <h1 class="titulo-apresentacao">Divida despesas sem complicações.</h1>
+          <p class="subtitulo-apresentacao">
+            O <strong>CoinShare</strong> centraliza os gastos do seu grupo, calcula os acertos automaticamente e simplifica pagamentos via Pix.
+          </p>
+
+          <div class="destaques-apresentacao">
+            <div class="item-destaque-apresentacao">
+              <div class="icone-destaque-apresentacao">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+              <div class="texto-destaque-apresentacao">
+                <strong>Divisão Justa e Personalizada</strong>
+                <p>Divida igualmente ou configure porcentagens customizadas por participante com total clareza.</p>
+              </div>
+            </div>
+
+            <div class="item-destaque-apresentacao">
+              <div class="icone-destaque-apresentacao">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+              <div class="texto-destaque-apresentacao">
+                <strong>Acerto Direto via Pix</strong>
+                <p>Balanço transparente de quem deve para quem, com chave Pix e cópia em apenas 1 clique.</p>
+              </div>
+            </div>
+
+            <div class="item-destaque-apresentacao">
+              <div class="icone-destaque-apresentacao">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+              </div>
+              <div class="texto-destaque-apresentacao">
+                <strong>Relatórios &amp; Histórico Inteligente</strong>
+                <p>Gráficos interativos por membros e categorias com visão completa de todas as transações.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="selo-confianca-apresentacao">
+            <span class="ponto-selo-confianca"></span>
+            <span>100% colaborativo e seguro &bull; Feito para viagens, amigos e repúblicas</span>
+          </div>
+        </aside>
+
+        <!-- Formulários (Login / Cadastro) -->
+        <div class="conteiner-autenticacao">
+          
+          <header class="cabecalho-autenticacao">
+            <div class="envoltura-logo">
+              <img src="img/logo.png" alt="Logo CoinShare" class="logo-marca" id="imagem-logo-autenticacao">
+            </div>
+            <h2 class="titulo-marca">COINSHARE</h2>
+            <p id="subtitulo-autenticacao" class="subtitulo-autenticacao">BEM VINDO DE VOLTA</p>
+          </header>
+
+          <div class="abas-autenticacao">
+            <button type="button" id="botao-aba-entrar" class="aba-autenticacao ativa">Entrar</button>
+            <button type="button" id="botao-aba-cadastrar" class="aba-autenticacao">Cadastrar</button>
+          </div>
+
+          <!-- Formulário de Login (Figura 1) -->
+          <form id="formulario-login" class="formulario-autenticacao" novalidate>
+            <div class="campo-formulario">
+              <label for="login-email" class="rotulo-campo">EMAIL</label>
+              <input type="email" id="login-email" class="entrada-formulario" placeholder="Digite seu e-mail" required autocomplete="email">
+            </div>
+
+            <div class="campo-formulario">
+              <label for="login-senha" class="rotulo-campo">SENHA</label>
+              <input type="password" id="login-senha" class="entrada-formulario" placeholder="Digite sua senha" required autocomplete="current-password">
+            </div>
+
+            <div class="linha-links-autenticacao">
+              <button type="button" id="botao-esqueci-senha" class="link-texto">ESQUECI MINHA SENHA</button>
+            </div>
+
+            <button type="submit" id="botao-submeter-login" class="botao botao-primario botao-bloco">ENTRAR</button>
+
+            <div class="divisor-texto">
+              <span>Ou continue com</span>
+            </div>
+
+            <div class="grade-login-social">
+              <button type="button" class="botao-social social-google" data-provedor="Google" data-dica="Em breve" aria-label="Entrar com Google (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </button>
+              <button type="button" class="botao-social social-apple" data-provedor="Apple" data-dica="Em breve" aria-label="Entrar com Apple (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.85.94-2.93-.93.04-2.02.63-2.67 1.39-.58.67-.99 1.77-.85 2.81 1.04.08 2.07-.54 2.58-1.27z"/>
+                </svg>
+              </button>
+              <button type="button" class="botao-social social-facebook" data-provedor="Facebook" data-dica="Em breve" aria-label="Entrar com Facebook (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="alternancia-inferior-autenticacao">
+              <span>Não tem conta?</span>
+              <button type="button" id="botao-alternar-cadastro" class="link-texto-destaque">Registre-se aqui.</button>
+            </div>
+          </form>
+
+          <!-- Formulário de Cadastro (Figura 2) -->
+          <form id="formulario-cadastro" class="formulario-autenticacao oculto" novalidate>
+            <div class="campo-formulario">
+              <label for="cadastro-nome" class="rotulo-campo">NOME COMPLETO</label>
+              <input type="text" id="cadastro-nome" class="entrada-formulario" placeholder="Digite seu nome completo" required autocomplete="name">
+            </div>
+
+            <div class="campo-formulario">
+              <label for="cadastro-email" class="rotulo-campo">EMAIL</label>
+              <input type="email" id="cadastro-email" class="entrada-formulario" placeholder="Digite seu e-mail" required autocomplete="email">
+            </div>
+
+            <div class="campo-formulario">
+              <label for="cadastro-senha" class="rotulo-campo">SENHA</label>
+              <input type="password" id="cadastro-senha" class="entrada-formulario" placeholder="Crie uma senha" required autocomplete="new-password">
+            </div>
+
+            <div class="campo-formulario">
+              <label for="cadastro-confirmar-senha" class="rotulo-campo">CONFIRME A SENHA</label>
+              <input type="password" id="cadastro-confirmar-senha" class="entrada-formulario" placeholder="Confirme sua senha" required autocomplete="new-password">
+            </div>
+
+            <label class="conteiner-caixa-selecao">
+              <input type="checkbox" id="cadastro-termos" required>
+              <span class="caixa-selecao-customizada"></span>
+              <span class="texto-rotulo-caixa-selecao">Concordo com os termos &amp; políticas</span>
+            </label>
+
+            <button type="submit" id="botao-submeter-cadastro" class="botao botao-primario botao-bloco">CRIAR</button>
+
+            <div class="divisor-texto">
+              <span>Ou continue com</span>
+            </div>
+
+            <div class="grade-login-social">
+              <button type="button" class="botao-social social-google" data-provedor="Google" data-dica="Em breve" aria-label="Cadastrar com Google (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </button>
+              <button type="button" class="botao-social social-apple" data-provedor="Apple" data-dica="Em breve" aria-label="Cadastrar com Apple (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.78 1.06-1.85.94-2.93-.93.04-2.02.63-2.67 1.39-.58.67-.99 1.77-.85 2.81 1.04.08 2.07-.54 2.58-1.27z"/>
+                </svg>
+              </button>
+              <button type="button" class="botao-social social-facebook" data-provedor="Facebook" data-dica="Em breve" aria-label="Cadastrar com Facebook (Em breve)" title="Em breve" aria-disabled="true">
+                <svg viewBox="0 0 24 24" class="icone-social" aria-hidden="true">
+                  <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="alternancia-inferior-autenticacao">
+              <span>Já tem uma conta?</span>
+              <button type="button" id="botao-alternar-login" class="link-texto-destaque">Entre aqui</button>
+            </div>
+          </form>
+
+        </div> <!-- /.conteiner-autenticacao -->
+      </div> <!-- /.conteiner-layout-autenticacao -->
+    </section>
+
+    <!-- ==============================================
+         2. TELA INICIAL / DASHBOARD DO GRUPO (Figura 3)
+    =============================================== -->
+    <section id="tela-inicio" class="tela tela-inicio">
+      
+      <!-- Topo Verde Escuro com Usuário e Grupo -->
+      <header class="cabecalho-aplicacao">
+        <div class="barra-status-usuario">
+          <div class="selo-usuario" id="cabecalho-usuario-selo">
+            <span class="circulo-avatar" id="cabecalho-avatar-circulo">
+              <svg viewBox="0 0 24 24" class="icone-avatar"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </span>
+            <span id="cabecalho-usuario-nome" class="nome-usuario-cabecalho">NOME USUÁRIO</span>
+          </div>
+
+          <div class="acoes-cabecalho-direita">
+            <button type="button" id="botao-notificacoes-inicio" class="botao-icone-cabecalho" aria-label="Notificações">
+              <svg viewBox="0 0 24 24" class="icone-cabecalho-sino"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="bloco-destaque-grupo">
+          <div class="meta-destaque-grupo">
+            <span class="etiqueta-pequena-grupo">GRUPO</span>
+            <div class="linha-titulo-grupo">
+              <h2 id="nome-grupo-inicio" class="titulo-principal-grupo">NENHUM GRUPO ATIVO</h2>
+              <button type="button" id="botao-trocar-grupo-inicio" class="botao-trocar-grupo" title="Trocar grupo">
+                <svg viewBox="0 0 24 24" class="icone-troca"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Conteúdo com Scroll -->
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <div class="layout-grade-painel">
+          <div class="coluna-painel-primaria">
+            <!-- Card Saldo do seu grupo -->
+            <article class="cartao-banner-saldo">
+              <div class="meta-saldo">
+                <span class="subtitulo-saldo">Saldo do seu grupo</span>
+                <div class="linha-saldo">
+                  <span id="saldo-grupo-inicio" class="valor-saldo">R$ 0,00</span>
+                  <div class="icone-mini-grafico" aria-hidden="true">
+                    <span class="barra barra-1"></span>
+                    <span class="barra barra-2"></span>
+                    <span class="barra barra-3"></span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Ações Rápidas (Membros, Relatórios, Novo Grupo, Acerto de Contas) -->
+            <nav class="grade-acoes-rapidas" aria-label="Ações rápidas">
+              <button type="button" id="botao-rapido-membros" class="botao-cartao-rapido">
+                <div class="caixa-icone-rapido">
+                  <svg viewBox="0 0 24 24" class="svg-rapido"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <span class="rotulo-rapido">Membros</span>
+              </button>
+
+              <button type="button" id="botao-rapido-relatorios" class="botao-cartao-rapido">
+                <div class="caixa-icone-rapido">
+                  <svg viewBox="0 0 24 24" class="svg-rapido"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                </div>
+                <span class="rotulo-rapido">Relatórios</span>
+              </button>
+
+              <button type="button" id="botao-rapido-acerto" class="botao-cartao-rapido">
+                <div class="caixa-icone-rapido">
+                  <svg viewBox="0 0 24 24" class="svg-rapido"><path fill="currentColor" d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <span class="rotulo-rapido">Acerto</span>
+              </button>
+
+              <button type="button" id="botao-rapido-novo-grupo" class="botao-cartao-rapido">
+                <div class="caixa-icone-rapido">
+                  <svg viewBox="0 0 24 24" class="svg-rapido"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </div>
+                <span class="rotulo-rapido">Novo Grupo</span>
+              </button>
+            </nav>
+
+            <!-- Dica Educativa do Protótipo -->
+            <aside class="cartao-dica" role="note">
+              <div class="coluna-icone-dica">
+                <svg viewBox="0 0 24 24" class="icone-lampada"><path fill="currentColor" d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+              </div>
+              <p class="texto-dica">TOQUE EM UMA DESPESA PARA VER OS DETALHES DA DIVISÃO</p>
+            </aside>
+          </div>
+
+          <div class="coluna-painel-secundaria">
+            <!-- Seção Despesas Recentes (Figura 3) -->
+            <section class="bloco-secao">
+              <div class="linha-cabecalho-secao">
+                <h3 class="titulo-secao">Despesas recentes</h3>
+                <button type="button" id="botao-ver-todas-despesas" class="botao-texto-acao">VER TUDO &gt;</button>
+              </div>
+
+              <div id="lista-despesas-recentes-inicio" class="lista-despesas-recentes">
+                <!-- Itens inseridos dinamicamente pelo JS via fetch -->
+              </div>
+            </section>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Botão Flutuante (FAB) para Adicionar Despesa -->
+      <button type="button" id="botao-flutuante-nova-despesa" class="botao-flutuante" aria-label="Nova despesa">
+        <svg viewBox="0 0 24 24" class="icone-flutuante"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      </button>
+
+    </section>
+
+    <!-- ==============================================
+         3. TELA DE DESPESAS DO GRUPO (Figura 4)
+    =============================================== -->
+    <section id="tela-despesas" class="tela tela-despesas">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-despesas" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">DESPESAS DO GRUPO</h2>
+            <p class="descricao-subcabecalho">CONFIRA TODAS AS COMPRAS REALIZADAS PELO GRUPO.</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        <div id="lista-todas-despesas" class="pilha-cartoes">
+          <!-- Renderizado via fetch -->
+        </div>
+
+        <div class="conteiner-acao-inferior">
+          <button type="button" id="botao-despesas-nova-compra" class="botao botao-primario botao-bloco">NOVA COMPRA</button>
+          <button type="button" id="botao-despesas-voltar-inicio" class="link-texto-centralizado">Voltar para Início</button>
+        </div>
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         4. TELA DE DETALHES DA DESPESA (Figuras 7, 8, 9)
+    =============================================== -->
+    <section id="tela-detalhes-despesa" class="tela tela-detalhes-despesa">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-detalhes" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">DETALHES DA DESPESA</h2>
+            <p class="descricao-subcabecalho">CONFIRA OS DETALHES DA COMPRA</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <!-- Cartão Principal com borda correspondente ao status -->
+        <article id="detalhe-cartao-principal" class="cartao-principal-detalhe status-pago">
+          
+          <div class="meta-topo-detalhe">
+            <div class="item-meta">
+              <svg viewBox="0 0 24 24" class="icone-meta"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              <span id="detalhe-data">10/09/2026</span>
+            </div>
+            <div class="item-meta">
+              <svg viewBox="0 0 24 24" class="icone-meta"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <span id="detalhe-hora">12:00 H</span>
+            </div>
+            <div class="item-meta meta-categoria">
+              <svg viewBox="0 0 24 24" class="icone-meta"><path fill="currentColor" d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+              <span id="detalhe-categoria">ALIMENTAÇÃO</span>
+            </div>
+          </div>
+
+          <div class="bloco-info-detalhe">
+            <span class="rotulo-detalhe">DESPESA:</span>
+            <h3 id="detalhe-titulo" class="valor-detalhe-destaque">ALMOÇO</h3>
+          </div>
+
+          <div class="bloco-info-detalhe">
+            <span class="rotulo-detalhe">COMPRADO POR:</span>
+            <p id="detalhe-comprador" class="valor-detalhe">MEMBRO 1</p>
+          </div>
+
+          <div class="bloco-info-detalhe">
+            <span class="rotulo-detalhe">TOTAL:</span>
+            <p id="detalhe-total" class="valor-detalhe">R$ 100,00</p>
+          </div>
+
+          <div class="bloco-info-detalhe">
+            <span class="rotulo-detalhe">VALOR POR MEMBRO:</span>
+            <p id="detalhe-valor-por-membro" class="valor-detalhe-negrito">R$ 20,00</p>
+          </div>
+
+          <div class="bloco-info-detalhe">
+            <span class="rotulo-detalhe">LOCAL DA COMPRA:</span>
+            <p id="detalhe-local" class="valor-detalhe">RESTAURANTE FT</p>
+          </div>
+
+          <!-- Selo de Status Circular -->
+          <div class="envoltura-status-detalhe">
+            <div id="detalhe-selo-status" class="selo-status-grande status-pago">
+              <div id="detalhe-icone-status" class="caixa-icone-status"></div>
+              <span id="detalhe-texto-status" class="texto-selo-status">PAGO</span>
+            </div>
+          </div>
+
+          <!-- Aviso Informativo para o Recebedor -->
+          <div id="detalhe-aviso-recebedor" class="aviso-recebedor-despesa oculto">
+            <svg viewBox="0 0 24 24" class="icone-aviso-recebedor" aria-hidden="true"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <div>
+              <strong class="titulo-aviso-recebedor">Você é o recebedor desta despesa</strong>
+              <p class="texto-aviso-recebedor" id="texto-detalhe-aviso-recebedor">Sua parcela já está quitada. Os demais membros devem realizar o acerto diretamente para você.</p>
+            </div>
+          </div>
+
+          <!-- Botão Pagar se Pendente ou Atrasado -->
+          <button type="button" id="botao-detalhe-pagar" class="botao botao-primario-menta botao-bloco oculto">PAGAR</button>
+
+          <!-- Ações de Gestão da Despesa (Editar e Excluir) -->
+          <div id="conteiner-acoes-gestor-despesa" class="acoes-gestor-despesa oculto">
+            <button type="button" id="botao-detalhes-editar" class="botao botao-editar-despesa">
+              <svg viewBox="0 0 24 24" class="icone-botao-acao"><path fill="currentColor" d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+              EDITAR DESPESA
+            </button>
+            <button type="button" id="botao-detalhes-excluir" class="botao botao-excluir-despesa">
+              <svg viewBox="0 0 24 24" class="icone-botao-acao"><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+              EXCLUIR DESPESA
+            </button>
+          </div>
+
+        </article>
+
+        <!-- Detalhamento de Divisão entre membros -->
+        <article class="cartao-detalhamento-divisoes">
+          <h4 class="titulo-cartao-divisoes">Divisão entre os Participantes</h4>
+          <div id="lista-divisoes-detalhe" class="lista-divisoes">
+            <!-- Preenchido pelo JS -->
+          </div>
+        </article>
+
+        <div class="conteiner-acao-inferior">
+          <button type="button" id="botao-detalhe-voltar" class="botao botao-primario botao-bloco">VOLTAR</button>
+          <button type="button" id="botao-detalhe-inicio" class="link-texto-centralizado">Voltar para Início</button>
+        </div>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         5. TELA DE NOVA DESPESA (Figuras 5 e 6)
+    =============================================== -->
+    <section id="tela-nova-despesa" class="tela tela-nova-despesa">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-nova-despesa" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">DESPESAS DO GRUPO</h2>
+            <p class="descricao-subcabecalho">CONFIRA TODAS AS COMPRAS REALIZADAS PELO GRUPO.</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <div class="cartao-superficie-modal">
+          <div class="cabecalho-cartao-modal">
+            <h3 class="titulo-modal">NOVA DESPESA</h3>
+            <button type="button" id="botao-fechar-nova-despesa" class="botao-icone-fechar" aria-label="Fechar">&times;</button>
+          </div>
+
+          <form id="formulario-nova-despesa" novalidate>
+            <!-- Bloco Informativo: Quem registra é sempre o recebedor -->
+            <div class="campo-formulario">
+              <label class="rotulo-campo-negrito">RECEBEDOR (QUEM PAGOU A DESPESA):</label>
+              <div class="caixa-recebedor-despesa">
+                <div class="info-recebedor-esquerda">
+                  <div class="avatar-recebedor">
+                    <svg viewBox="0 0 24 24" class="icone-avatar-recebedor" aria-hidden="true"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  </div>
+                  <div>
+                    <strong id="despesa-nome-recebedor" class="nome-recebedor-despesa">Você</strong>
+                    <span class="subtexto-recebedor-despesa">Quem registra é o recebedor; sua fração já constará como paga.</span>
+                  </div>
+                </div>
+                <span class="selo-recebedor-pill">RECEBEDOR</span>
+              </div>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="despesa-titulo" class="rotulo-campo-negrito">NOME DA DESPESA:</label>
+              <input type="text" id="despesa-titulo" class="entrada-formulario-arredondada" placeholder="DIGITE O NOME DA DESPESA..." required>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="despesa-categoria" class="rotulo-campo-negrito">CATEGORIA</label>
+              <div class="linha-entrada-com-botao">
+                <select id="despesa-categoria" class="selecao-formulario-arredondada">
+                  <option value="Alimentação">Alimentação</option>
+                  <option value="Bebidas">Bebidas</option>
+                  <option value="Mercado">Mercado</option>
+                  <option value="Moradia">Moradia / Aluguel</option>
+                  <option value="Transporte">Transporte / Combustível</option>
+                  <option value="Lazer">Lazer / Passeios</option>
+                  <option value="Outros">Outros</option>
+                </select>
+                <button type="button" id="botao-adicionar-categoria" class="botao-pilula-acao" title="Adicionar Categoria">+</button>
+              </div>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="despesa-valor" class="rotulo-campo-negrito">VALOR TOTAL DA DESPESA:</label>
+              <input type="number" step="0.01" min="0.01" id="despesa-valor" class="entrada-formulario-arredondada" placeholder="DIGITE O VALOR TOTAL DA DESPESA..." required>
+            </div>
+
+            <div class="campo-formulario">
+              <label for="despesa-local" class="rotulo-campo-negrito">LOCAL DA COMPRA (OPCIONAL):</label>
+              <input type="text" id="despesa-local" class="entrada-formulario-arredondada" placeholder="Ex: Restaurante FT, Supermercado...">
+            </div>
+
+            <!-- Seletor Tipo de Divisão: IGUAL vs DESIGUAL (Figuras 5 e 6) -->
+            <fieldset class="conjunto-campos-formulario">
+              <legend class="rotulo-campo-negrito texto-centralizado">TIPO DE DIVISÃO:</legend>
+              <div class="grupo-radios-divisao">
+                <label class="rotulo-radio-divisao">
+                  <input type="radio" name="tipo-divisao" value="igual" checked>
+                  <span class="radio-customizado"></span>
+                  <span class="texto-radio">IGUAL</span>
+                </label>
+                <label class="rotulo-radio-divisao">
+                  <input type="radio" name="tipo-divisao" value="desigual">
+                  <span class="radio-customizado"></span>
+                  <span class="texto-radio">DESIGUAL</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Tabela de Divisão Desigual (Figura 6) -->
+            <div id="secao-divisao-desigual" class="conteiner-divisao-desigual oculto">
+              <p class="legenda-tabela-forte">DEFINA A PORCENTAGEM PAGA POR CADA MEMBRO:</p>
+              
+              <table class="tabela-customizada" id="tabela-divisao-desigual">
+                <thead>
+                  <tr>
+                    <th scope="col">MEMBRO</th>
+                    <th scope="col">PORCENTAGEM (%)</th>
+                  </tr>
+                </thead>
+                <tbody id="corpo-tabela-divisao-desigual">
+                  <!-- Linhas geradas dinamicamente com base nos membros do grupo -->
+                </tbody>
+              </table>
+              <div class="indicador-soma-porcentagem" id="indicador-soma-porcentagem">
+                Total: <span>100%</span>
+              </div>
+            </div>
+
+            <button type="submit" id="botao-salvar-despesa" class="botao botao-primario-menta botao-bloco">SALVAR</button>
+          </form>
+        </div>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         6. TELA DE ACERTO DE CONTAS (Figura 15)
+    =============================================== -->
+    <section id="tela-acerto-contas" class="tela tela-acerto-contas">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-acerto" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">ACERTO DE CONTAS</h2>
+            <p class="descricao-subcabecalho">CONFIRA QUEM DEVE PARA QUEM E REALIZE OS PAGAMENTOS</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <!-- Resumo dos Saldos (Figura 15) -->
+        <article class="cartao-resumo-acerto">
+          <h3 class="titulo-resumo-acerto">RESUMO DOS SALDOS</h3>
+          <div class="linha-acerto">
+            <span class="rotulo-acerto-alerta">TOTAL A PAGAR:</span>
+            <span id="acerto-total-pagar" class="valor-acerto-vermelho">R$ 0,00</span>
+          </div>
+          <div class="linha-acerto">
+            <span class="rotulo-acerto-alerta">TOTAL A RECEBER:</span>
+            <span id="acerto-total-receber" class="valor-acerto-vermelho">R$ 0,00</span>
+          </div>
+          <div class="linha-acerto">
+            <span class="rotulo-acerto-verde">BALANÇO GERAL:</span>
+            <span id="acerto-balanco-geral" class="valor-acerto-verde">R$ 0,00</span>
+          </div>
+        </article>
+
+        <!-- Lista Quem Deve Para Quem (Figura 15) -->
+        <section class="bloco-secao">
+          <h3 class="titulo-secao-verde">QUEM DEVE PARA QUEM</h3>
+          <div id="conteiner-lista-dividas" class="pilha-cartoes">
+            <!-- Renderizado dinamicamente -->
+          </div>
+        </section>
+
+        <div class="conteiner-acao-inferior">
+          <button type="button" id="botao-acerto-voltar" class="botao botao-primario botao-bloco">VOLTAR</button>
+          <button type="button" id="botao-acerto-inicio" class="link-texto-centralizado">Voltar para Início</button>
+        </div>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         7. TELA DE RELATÓRIO DO GRUPO (Figura 11)
+    =============================================== -->
+    <section id="tela-relatorios" class="tela tela-relatorios">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-relatorios" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">RELATÓRIO DO GRUPO</h2>
+            <p class="descricao-subcabecalho">CONFIRA O RELATORIO DE TRANSAÇÕES DO GRUPO</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <!-- Filtro Período -->
+        <div class="linha-filtro-periodo">
+          <div class="icone-periodo">
+            <svg viewBox="0 0 24 24" class="icone-calendario"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          </div>
+          <label for="relatorio-data-de" class="rotulo-periodo">PERÍODO DE:</label>
+          <input type="date" id="relatorio-data-de" class="entrada-pilula-periodo">
+          <label for="relatorio-data-ate" class="rotulo-periodo">ATÉ:</label>
+          <input type="date" id="relatorio-data-ate" class="entrada-pilula-periodo">
+        </div>
+
+        <!-- Seção Relatório de Compras -->
+        <section class="bloco-secao">
+          <h3 class="titulo-secao-verde">RELATORIO DE COMPRAS:</h3>
+          
+          <div class="linha-pilulas-filtro-radio">
+            <label class="rotulo-radio-divisao">
+              <input type="radio" name="modo-visualizacao-relatorio" value="membro" checked>
+              <span class="radio-customizado"></span>
+              <span class="texto-radio">POR MEMBRO</span>
+            </label>
+            <label class="rotulo-radio-divisao">
+              <input type="radio" name="modo-visualizacao-relatorio" value="categoria">
+              <span class="radio-customizado"></span>
+              <span class="texto-radio">POR CATEGORIAS</span>
+            </label>
+          </div>
+
+          <p id="subtitulo-modo-relatorio" class="legenda-cinza">CONFIRA QUEM REALIZOU MAIS COMPRAS NO PERÍODO.</p>
+
+          <!-- Gráfico Donut SVG Responsivo e Interativo -->
+          <div class="envoltura-grafico">
+            <div id="conteiner-grafico-rosca" class="caixa-grafico-rosca">
+              <svg id="svg-grafico-rosca" viewBox="0 0 200 200" class="svg-grafico-rosca"></svg>
+            </div>
+            <div id="legenda-grafico" class="pilha-legenda-grafico">
+              <!-- Legenda preenchida pelo JS -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção Relatório de Pagamentos (Figura 11) -->
+        <section class="bloco-secao">
+          <h3 class="titulo-secao-verde">RELATORIO DE PAGAMENTOS:</h3>
+          <p class="legenda-cinza">CONFIRA O ÍNDICE DE PAGAMENTOS POR MEMBRO</p>
+
+          <table class="tabela-customizada" id="tabela-conformidade">
+            <thead>
+              <tr>
+                <th scope="col">NOME</th>
+                <th scope="col">ÍNDICE DE PAGAMENTO</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela-conformidade">
+              <!-- Preenchido pelo JS -->
+            </tbody>
+          </table>
+        </section>
+
+        <div class="conteiner-acao-inferior">
+          <button type="button" id="botao-relatorios-voltar" class="botao botao-primario botao-bloco">VOLTAR</button>
+          <button type="button" id="botao-relatorios-inicio" class="link-texto-centralizado">Voltar para Início</button>
+        </div>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         8. TELA DE HISTÓRICO DE TRANSAÇÕES (Figura 12)
+    =============================================== -->
+    <section id="tela-historico" class="tela tela-historico">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-historico" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <span class="pre-subcabecalho">HISTÓRICO DE</span>
+            <h2 class="titulo-grande-subcabecalho">TRANSAÇÕES</h2>
+          </div>
+        </div>
+        <button type="button" id="botao-notificacoes-historico" class="botao-icone-cabecalho" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" class="icone-cabecalho-sino"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+        </button>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <!-- Saldo do Grupo (Figura 12) -->
+        <article class="cartao-banner-saldo">
+          <div class="meta-saldo">
+            <span class="subtitulo-saldo">Saldo do grupo</span>
+            <div class="linha-saldo">
+              <span id="saldo-grupo-historico" class="valor-saldo">R$ 0,00</span>
+              <div class="icone-mini-grafico" aria-hidden="true">
+                <span class="barra barra-1"></span>
+                <span class="barra barra-2"></span>
+                <span class="barra barra-3"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Filtros Rápidos e Seleção de Período -->
+        <div class="barra-controles-historico">
+          <div class="pilulas-filtro-transacoes">
+            <button type="button" class="pilula-transacao ativa" data-filtro="todos">Todos</button>
+            <button type="button" class="pilula-transacao" data-filtro="entradas">Entradas</button>
+            <button type="button" class="pilula-transacao" data-filtro="saidas">Saídas</button>
+          </div>
+
+          <!-- Seletor de Período Dropdown (Figura 12) -->
+          <div class="caixa-selecao-periodo">
+            <svg viewBox="0 0 24 24" class="icone-calendario-mini"><path fill="currentColor" d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            <select id="selecao-periodo-transacoes" class="selecao-dropdown-periodo">
+              <option value="30">Últimos 30 dias</option>
+              <option value="60">Últimos 60 dias</option>
+              <option value="90">Últimos 90 dias</option>
+              <option value="all">Todo o período</option>
+            </select>
+          </div>
+        </div>
+
+        <section class="bloco-secao">
+          <h3 class="titulo-secao-verde">HISTÓRICO DE TRANSAÇÕES</h3>
+          <div id="conteiner-lista-transacoes" class="pilha-cartoes">
+            <!-- Preenchido pelo JS -->
+          </div>
+        </section>
+
+      </main>
+
+      <!-- FAB para nova transação/despesa -->
+      <button type="button" id="botao-flutuante-historico-novo" class="botao-flutuante" aria-label="Nova despesa">
+        <svg viewBox="0 0 24 24" class="icone-flutuante"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      </button>
+
+    </section>
+
+    <!-- ==============================================
+         9. TELA DE CRIAR NOVO GRUPO (Figura 13)
+    =============================================== -->
+    <section id="tela-criar-grupo" class="tela tela-criar-grupo">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-criar-grupo" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <span class="pre-subcabecalho">CRIAR NOVO</span>
+            <h2 class="titulo-grande-subcabecalho">GRUPO</h2>
+          </div>
+        </div>
+        <button type="button" class="botao-icone-cabecalho" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" class="icone-cabecalho-sino"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+        </button>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <form id="formulario-criar-grupo" novalidate>
+          
+          <div class="campo-formulario">
+            <div class="linha-rotulo-com-icone">
+              <span class="icone-circular-destaque">
+                <svg viewBox="0 0 24 24" class="icone-destaque"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </span>
+              <label for="grupo-nome" class="rotulo-campo-negrito">NOME DO GRUPO</label>
+            </div>
+            <input type="text" id="grupo-nome" class="entrada-formulario-arredondada" placeholder="Ex: Amigos, Família, Trabalho..." required>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="grupo-descricao" class="rotulo-campo-negrito">DESCRIÇÃO (OPCIONAL)</label>
+            <textarea id="grupo-descricao" maxlength="150" class="area-texto-formulario-arredondada" placeholder="Adicione uma breve descrição sobre o grupo..."></textarea>
+            <div class="contador-caracteres"><span id="contagem-caracteres-descricao">0</span>/150</div>
+          </div>
+
+          <!-- Tipo de Grupo (Figura 13) -->
+          <fieldset class="conjunto-campos-formulario">
+            <legend class="rotulo-campo-negrito">TIPO DE GRUPO</legend>
+            <div class="cartoes-tipo-grupo">
+              
+              <label class="cartao-tipo-grupo ativa" id="cartao-tipo-fechado">
+                <input type="radio" name="tipo-grupo" value="fechado" checked>
+                <div class="coluna-icone-tipo">
+                  <svg viewBox="0 0 24 24" class="svg-tipo"><path fill="currentColor" d="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10z"/></svg>
+                </div>
+                <div class="info-tipo">
+                  <strong>Grupo fechado</strong>
+                  <p>Apenas convidados podem entrar</p>
+                </div>
+                <span class="marca-radio-customizada"></span>
+              </label>
+
+              <label class="cartao-tipo-grupo" id="cartao-tipo-aberto">
+                <input type="radio" name="tipo-grupo" value="aberto">
+                <div class="coluna-icone-tipo">
+                  <svg viewBox="0 0 24 24" class="svg-tipo"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <div class="info-tipo">
+                  <strong>Grupo aberto</strong>
+                  <p>Qualquer pessoa com o link pode entrar</p>
+                </div>
+                <span class="marca-radio-customizada"></span>
+              </label>
+
+            </div>
+          </fieldset>
+
+          <div class="campo-formulario">
+            <label for="grupo-buscar-participantes" class="rotulo-campo-negrito">ADICIONAR PARTICIPANTES</label>
+            <div class="caixa-busca-entrada">
+              <svg viewBox="0 0 24 24" class="icone-busca-entrada"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+              <input type="text" id="grupo-buscar-participantes" class="entrada-formulario-arredondada-busca" placeholder="Busque por nome ou usuário...">
+            </div>
+            <div id="etiquetas-participantes-selecionados" class="linha-etiquetas-selecionadas"></div>
+            <div id="caixa-sugestoes-busca" class="caixa-sugestoes oculto"></div>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="grupo-link-convite" class="rotulo-campo-negrito">LINK DO GRUPO (OPCIONAL)</label>
+            <div class="linha-link-convite">
+              <input type="text" id="grupo-link-convite" class="entrada-formulario-arredondada-link" placeholder="O link será gerado após criar o grupo" readonly>
+              <button type="button" id="botao-copiar-link-convite" class="botao-copiar-pilula">
+                <svg viewBox="0 0 24 24" class="icone-copiar"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copiar
+              </button>
+            </div>
+            <p class="legenda-cinza">Você pode compartilhar este link com as pessoas que quiser convidar.</p>
+          </div>
+
+          <button type="submit" id="botao-submeter-criar-grupo" class="botao botao-primario botao-bloco">CRIAR GRUPO</button>
+        </form>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         10. TELA DE CONFIGURAÇÕES (Figura 14)
+    =============================================== -->
+    <section id="tela-configuracoes" class="tela tela-configuracoes">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-configuracoes" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">CONFIGURAÇÕES</h2>
+            <p class="descricao-subcabecalho">Gerencie sua conta, grupos e preferências do Coinshare.</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        
+        <!-- Cartão Perfil do Usuário (Figura 14) -->
+        <article class="cartao-resumo-perfil-usuario">
+          <div class="perfil-usuario-esquerda">
+            <span class="iniciais-avatar-usuario" id="config-iniciais-avatar">GS</span>
+            <div class="nomes-perfil-usuario">
+              <strong id="config-nome-usuario" class="nome-perfil">Guilherme Silva</strong>
+              <span id="config-email-usuario" class="email-perfil">guilherme.silva@email.com</span>
+            </div>
+          </div>
+          <button type="button" id="botao-editar-perfil" class="botao-texto-editar">Editar</button>
+        </article>
+
+        <!-- Seção: Conta (Figura 14) -->
+        <section class="bloco-grupo-configuracoes">
+          <h3 class="cabecalho-grupo-configuracoes">Conta</h3>
+          <div class="lista-menu-configuracoes">
+            
+            <button type="button" id="config-botao-dados-pessoais" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Dados pessoais</strong>
+                <p>Nome, email e telefone</p>
+              </div>
+            </button>
+
+            <button type="button" id="config-botao-senha" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Alterar senha</strong>
+                <p>Atualize sua senha de acesso</p>
+              </div>
+            </button>
+
+            <button type="button" id="config-botao-pix" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Chave PIX / conta</strong>
+                <p>Usada para receber pagamentos</p>
+              </div>
+            </button>
+
+          </div>
+        </section>
+
+        <!-- Seção: Preferências (Figura 14) -->
+        <section class="bloco-grupo-configuracoes">
+          <h3 class="cabecalho-grupo-configuracoes">Preferências</h3>
+          <div class="lista-menu-configuracoes">
+            
+            <div class="item-alternancia-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Notificações</strong>
+                <p>Avisos de novas despesas e cobranças</p>
+              </div>
+              <label class="interruptor-alternancia">
+                <input type="checkbox" id="config-alternar-notificacoes" checked>
+                <span class="deslizador-alternancia"></span>
+              </label>
+            </div>
+
+            <button type="button" id="config-botao-metodos-pagamento" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Métodos de pagamento</strong>
+                <p>Métodos de pagamento disponíveis</p>
+              </div>
+            </button>
+
+            <div class="item-alternancia-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A9.032 9.032 0 0112 21c-4.97 0-9-4.03-9-9 0-4.17 2.84-7.67 6.37-8.49z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Modo noturno</strong>
+                <p>Ativar e desativar modo noturno</p>
+              </div>
+              <label class="interruptor-alternancia">
+                <input type="checkbox" id="config-alternar-modo-escuro">
+                <span class="deslizador-alternancia"></span>
+              </label>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Seção: Grupos (Figura 14) -->
+        <section class="bloco-grupo-configuracoes">
+          <h3 class="cabecalho-grupo-configuracoes">Grupos</h3>
+          <div class="lista-menu-configuracoes">
+            
+            <button type="button" id="config-botao-gerenciar-grupos" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Gerenciar grupos</strong>
+                <p>República, viagens e outros</p>
+              </div>
+            </button>
+
+            <button type="button" id="config-botao-sair-grupo" class="item-menu-configuracoes">
+              <div class="icone-item-menu">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+              </div>
+              <div class="info-item-menu">
+                <strong>Sair de um grupo</strong>
+                <p>Remover-se de um grupo existente</p>
+              </div>
+            </button>
+
+          </div>
+        </section>
+
+        <!-- Botões de Sair (Figura 14) -->
+        <div class="acoes-perigo-conta">
+          <button type="button" id="botao-sair-conta" class="botao-contorno-perigo botao-bloco">SAIR DA CONTA</button>
+          <button type="button" id="botao-excluir-conta" class="link-texto-perigo">Excluir minha conta</button>
+        </div>
+
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         11. TELA DE MEMBROS DO GRUPO
+    =============================================== -->
+    <section id="tela-membros" class="tela tela-membros">
+      
+      <header class="subcabecalho-aplicacao">
+        <div class="subcabecalho-esquerda">
+          <button type="button" id="botao-voltar-membros" class="botao-icone-voltar" aria-label="Voltar">
+            <svg viewBox="0 0 24 24" class="icone-voltar"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+          </button>
+          <div>
+            <h2 class="titulo-subcabecalho">MEMBROS DO GRUPO</h2>
+            <p class="descricao-subcabecalho">PARTICIPANTES E CHAVES PIX CADASTRADAS</p>
+          </div>
+        </div>
+      </header>
+
+      <main class="conteudo-rolavel-aplicacao">
+        <div class="banner-convite-grupo">
+          <div class="info-banner-convite">
+            <span class="legenda-cinza">Código do grupo:</span>
+            <strong id="membros-codigo-convite" class="destaque-codigo">-</strong>
+          </div>
+          <button type="button" id="botao-copiar-codigo-membros" class="botao-copiar-pilula">Copiar Link</button>
+        </div>
+
+        <section class="bloco-secao">
+          <h3 class="titulo-secao-verde">Integrantes</h3>
+          <div id="conteiner-lista-membros" class="pilha-cartoes">
+            <!-- Renderizado dinamicamente -->
+          </div>
+        </section>
+
+        <div class="conteiner-acao-inferior">
+          <button type="button" id="gatilho-modal-adicionar-membro" class="botao botao-primario botao-bloco">ADICIONAR PARTICIPANTE</button>
+          <button type="button" id="botao-membros-inicio" class="link-texto-centralizado">Voltar para Início</button>
+        </div>
+      </main>
+
+    </section>
+
+    <!-- ==============================================
+         BARRA DE NAVEGAÇÃO INFERIOR (BOTTOM NAV)
+    =============================================== -->
+    <nav id="barra-navegacao-inferior" class="navegacao-inferior oculto" aria-label="Navegação Principal">
+      <button type="button" class="botao-aba-navegacao ativa" data-alvo="tela-inicio" id="nav-btn-inicio">
+        <div class="caixa-icone-navegacao">
+          <svg viewBox="0 0 24 24" class="svg-navegacao"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </div>
+        <span class="texto-aba-navegacao">INÍCIO</span>
+      </button>
+
+      <button type="button" class="botao-aba-navegacao" data-alvo="tela-historico" id="nav-btn-historico">
+        <div class="caixa-icone-navegacao">
+          <svg viewBox="0 0 24 24" class="svg-navegacao"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <span class="texto-aba-navegacao">HISTÓRICO</span>
+      </button>
+
+      <button type="button" class="botao-aba-navegacao" data-alvo="tela-despesas" id="nav-btn-grupo">
+        <div class="caixa-icone-navegacao">
+          <svg viewBox="0 0 24 24" class="svg-navegacao"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+        </div>
+        <span class="texto-aba-navegacao">GRUPO</span>
+      </button>
+
+      <button type="button" class="botao-aba-navegacao" data-alvo="tela-configuracoes" id="nav-btn-configuracoes">
+        <div class="caixa-icone-navegacao">
+          <svg viewBox="0 0 24 24" class="svg-navegacao"><path fill="currentColor" d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+        </div>
+        <span class="texto-aba-navegacao">CONFIG</span>
+      </button>
+    </nav>
+
+    <!-- ==============================================
+         MODAIS DO SISTEMA
+    =============================================== -->
+    
+    <!-- Modal: Pagar Despesa (Figura 10) -->
+    <div id="modal-pagar-despesa" class="fundo-modal oculto" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-pagar">
+      <div class="cartao-modal">
+        <div class="cabecalho-cartao-modal">
+          <h3 id="modal-titulo-pagar" class="titulo-modal">PAGAR DESPESA</h3>
+          <button type="button" id="botao-fechar-modal-pagar" class="botao-icone-fechar" aria-label="Fechar">&times;</button>
+        </div>
+
+        <div class="conteudo-corpo-modal">
+          <div class="linha-info-modal">
+            <span class="rotulo-detalhe">DESPESA:</span>
+            <strong id="modal-pagar-nome-despesa" class="valor-info-modal">-</strong>
+          </div>
+
+          <div class="linha-info-modal">
+            <span class="rotulo-detalhe">COMPRADO POR:</span>
+            <span id="modal-pagar-nome-comprador" class="valor-info-modal">-</span>
+          </div>
+
+          <div class="linha-info-modal">
+            <span class="rotulo-detalhe">VALOR POR MEMBRO:</span>
+            <strong id="modal-pagar-valor-devido" class="destaque-info-modal">R$ 0,00</strong>
+          </div>
+
+          <div class="caixa-chave-pix" id="modal-pagar-conteiner-pix">
+            <span class="rotulo-pix">Chave Pix do recebedor:</span>
+            <div class="linha-copia-pix">
+              <input type="text" id="modal-pagar-chave-pix" class="entrada-formulario-pix" readonly placeholder="Chave Pix">
+              <button type="button" id="modal-botao-copiar-pix" class="botao-copiar-pix">Copiar Pix</button>
+            </div>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="modal-pagar-valor-personalizado" class="rotulo-campo-negrito texto-centralizado">VALOR</label>
+            <input type="number" step="0.01" id="modal-pagar-valor-personalizado" class="entrada-formulario-arredondada texto-centralizado" placeholder="DIGITE O VALOR DO PAGAMENTO...">
+          </div>
+
+          <button type="button" id="modal-botao-confirmar-pagamento" class="botao botao-primario-menta botao-bloco">PAGAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Editar Perfil / Chave Pix -->
+    <div id="modal-editar-perfil" class="fundo-modal oculto" role="dialog" aria-modal="true">
+      <div class="cartao-modal">
+        <div class="cabecalho-cartao-modal">
+          <h3 class="titulo-modal">EDITAR CONTA</h3>
+          <button type="button" id="botao-fechar-modal-perfil" class="botao-icone-fechar">&times;</button>
+        </div>
+        <form id="formulario-editar-perfil" class="conteudo-corpo-modal">
+          <div class="campo-formulario">
+            <label for="perfil-nome" class="rotulo-campo-negrito">NOME COMPLETO:</label>
+            <input type="text" id="perfil-nome" class="entrada-formulario-arredondada" required>
+          </div>
+          <div class="campo-formulario">
+            <label for="perfil-telefone" class="rotulo-campo-negrito">TELEFONE:</label>
+            <input type="text" id="perfil-telefone" class="entrada-formulario-arredondada" placeholder="(00) 00000-0000">
+          </div>
+          <div class="campo-formulario">
+            <label for="perfil-chave-pix" class="rotulo-campo-negrito">CHAVE PIX PARA RECEBIMENTOS:</label>
+            <input type="text" id="perfil-chave-pix" class="entrada-formulario-arredondada" placeholder="CPF, e-mail, telefone ou chave aleatória">
+          </div>
+          <div class="campo-formulario">
+            <label for="perfil-nova-senha" class="rotulo-campo-negrito">NOVA SENHA (DEIXE EM BRANCO PARA MANTER):</label>
+            <input type="password" id="perfil-nova-senha" class="entrada-formulario-arredondada" placeholder="Digite uma nova senha">
+          </div>
+          <button type="submit" class="botao botao-primario botao-bloco">SALVAR ALTERAÇÕES</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Selecionar Grupo Ativo -->
+    <div id="modal-lista-grupos" class="fundo-modal oculto" role="dialog" aria-modal="true">
+      <div class="cartao-modal">
+        <div class="cabecalho-cartao-modal">
+          <h3 class="titulo-modal">MEUS GRUPOS</h3>
+          <button type="button" id="botao-fechar-modal-grupos" class="botao-icone-fechar">&times;</button>
+        </div>
+        <div class="conteudo-corpo-modal">
+          <div id="lista-selecao-grupos" class="pilha-cartoes"></div>
+          <button type="button" id="botao-abrir-modal-criar-grupo" class="botao botao-primario-menta botao-bloco">CRIAR NOVO GRUPO</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Adicionar Participante ao Grupo Atual -->
+    <div id="modal-adicionar-membro" class="fundo-modal oculto" role="dialog" aria-modal="true">
+      <div class="cartao-modal">
+        <div class="cabecalho-cartao-modal">
+          <h3 class="titulo-modal">ADICIONAR PARTICIPANTE</h3>
+          <button type="button" id="botao-fechar-modal-membro" class="botao-icone-fechar">&times;</button>
+        </div>
+        <form id="formulario-adicionar-membro" class="conteudo-corpo-modal">
+          <div class="campo-formulario">
+            <label for="adicionar-membro-email" class="rotulo-campo-negrito">E-MAIL OU NOME DO USUÁRIO:</label>
+            <input type="text" id="adicionar-membro-email" class="entrada-formulario-arredondada" placeholder="Digite o e-mail ou nome cadastrado..." required>
+          </div>
+          <button type="submit" class="botao botao-primario botao-bloco">ADICIONAR AO GRUPO</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal: Editar Despesa -->
+    <div id="modal-editar-despesa" class="fundo-modal oculto" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-editar-despesa">
+      <div class="cartao-modal">
+        <div class="cabecalho-cartao-modal">
+          <h3 id="titulo-modal-editar-despesa" class="titulo-modal">EDITAR DESPESA</h3>
+          <button type="button" id="botao-fechar-modal-editar-despesa" class="botao-icone-fechar" aria-label="Fechar">&times;</button>
+        </div>
+        <form id="formulario-editar-despesa" class="conteudo-corpo-modal" novalidate>
+          <input type="hidden" id="editar-despesa-id">
+
+          <div class="campo-formulario">
+            <label for="editar-despesa-titulo" class="rotulo-campo-negrito">NOME DA DESPESA:</label>
+            <input type="text" id="editar-despesa-titulo" class="entrada-formulario-arredondada" placeholder="Ex: Almoço, Supermercado..." required>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="editar-despesa-categoria" class="rotulo-campo-negrito">CATEGORIA:</label>
+            <select id="editar-despesa-categoria" class="selecao-formulario-arredondada">
+              <option value="Alimentação">Alimentação</option>
+              <option value="Bebidas">Bebidas</option>
+              <option value="Mercado">Mercado</option>
+              <option value="Moradia">Moradia / Aluguel</option>
+              <option value="Transporte">Transporte / Combustível</option>
+              <option value="Lazer">Lazer / Passeios</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="editar-despesa-valor" class="rotulo-campo-negrito">VALOR TOTAL DA DESPESA:</label>
+            <input type="number" step="0.01" min="0.01" id="editar-despesa-valor" class="entrada-formulario-arredondada" placeholder="0,00" required>
+          </div>
+
+          <div class="campo-formulario">
+            <label for="editar-despesa-local" class="rotulo-campo-negrito">LOCAL DA COMPRA (OPCIONAL):</label>
+            <input type="text" id="editar-despesa-local" class="entrada-formulario-arredondada" placeholder="Ex: Restaurante FT, Supermercado...">
+          </div>
+
+          <div class="linha-botoes-gestao">
+            <button type="button" id="botao-cancelar-edicao-despesa" class="botao botao-secundario-acao">CANCELAR</button>
+            <button type="submit" id="botao-salvar-edicao-despesa" class="botao botao-primario-menta">SALVAR ALTERAÇÕES</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Conteiner de Notificações Toast -->
+    <div id="conteiner-notificacoes" class="conteiner-notificacoes" aria-live="polite"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
